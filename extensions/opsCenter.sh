@@ -22,3 +22,19 @@ python opsCenter.py $1 $2 $3 $4 $5 $6 $7
 
 echo "Provisioning a new cluster using provision.json"
 curl --insecure -H "Accept: application/json" -X POST http://127.0.0.1:8888/provision -d @provision.json
+
+echo "Starting demo install..."
+cd
+wget https://github.com/Marcinthecloud/AzureTechDaySetup/archive/master.zip
+sudo apt-get install unzip
+unzip master.zip
+echo "installing needed packages"
+sudo apt-get install python-pip
+sudo apt-get install python-dev
+sudo pip install cassandra-driver
+cd AzureTechDaySetup-master/DSESetup/
+echo "Running data loader script..."
+python solr_dataloader.py
+echo "Creating and indexing Solr cores..."
+./create_core.sh
+echo "Finished!"

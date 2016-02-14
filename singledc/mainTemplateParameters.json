@@ -3,15 +3,15 @@
     "value": 5
   },
   "vmSize": {
-    "value": "Standard_D1"
+    "value": "Standard_D13"
   },
   "adminUsername": {
     "value": "datastax"
   },
   "adminPassword": {
-    "value": "foo123!"
+    "value": "C@ssandra"
   },
   "nodeType": {
-    "value": "cassandra"
+    "value": "solr"
   }
 }
